@@ -1,16 +1,24 @@
 const express = require('express');
 const ensure = require('connect-ensure-login');
 const bcrypt = require('bcrypt');
+const User   = require('../models/user');
+const routerUser = express.Router();
 
-const User = require('../models/user-model.js');
+// routerUser.get('/user/:id', (req, res, next) => {
 
+routerUser.get('/profile',
+//     redirects to '/login' if you are NOT logged in
+//                      |
+ensure.ensureLoggedIn('/login'),
+(req, res, next) => {
 
-const routerThingy = express.Router();
+res.render('user-views/profile.ejs', {
+  successMessage: req.flash('success')
+});
+}
+);
 
-
-// routerThingy.get('/user/:id', (req, res, next) => {
-
-routerThingy.get('/profile/edit',
+routerUser.get('/profile/edit',
 
     //     redirects to '/login' if you are NOT logged in
     //                      |
@@ -31,7 +39,7 @@ routerThingy.get('/profile/edit',
 );
 
 // <form method="post" action="/profile/edit">
-routerThingy.post('/profile/edit',
+routerUser.post('/profile/edit',
 
   ensure.ensureLoggedIn('/login'),
 
@@ -114,7 +122,9 @@ routerThingy.post('/profile/edit',
 //   { username: 'nizar' },
 //   { $set: { role: 'admin' } }
 // )
-routerThingy.get('/users', (req, res, next) => {
+
+
+routerUser.get('/users', (req, res, next) => {
   // If you are logged in AND and admin LEZ DO THIS
   if (req.user && req.user.role === 'admin') {
     User.find((err, usersList) => {
@@ -137,7 +147,7 @@ routerThingy.get('/users', (req, res, next) => {
 });
 
 
-routerThingy.post('/users/:id/admin', (req, res, next) => {
+routerUser.post('/users/:id/admin', (req, res, next) => {
   // If you are logged in AND and admin LEZ DO THIS
   if (req.user && req.user.role === 'admin') {
     User.findByIdAndUpdate(
@@ -164,4 +174,4 @@ routerThingy.post('/users/:id/admin', (req, res, next) => {
 });
 
 
-module.exports = routerThingy;
+module.exports = routerUser;

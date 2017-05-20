@@ -2,17 +2,16 @@ const express      = require('express');
 const router  = express.Router();
 
 /* GET home page. */
-console.log('hi');
 
 router.get('/', (req, res, next) => {
   console.log('HOME ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
-  console.log('SESSION (from express-session middleware)');
-  console.log(req.session);
+  // console.log('SESSION (from express-session middleware)');
+  // console.log(req.session);
 
   console.log('\n');
-  console.log('USER (from Passport middleware)');
-  console.log(req.user);
+  // console.log('USER (from Passport middleware)');
+  // console.log(req.user);
 
   // Render a completely different view for logged in users
   // if (req.user) {
@@ -23,12 +22,12 @@ router.get('/', (req, res, next) => {
 
   //   res.render('index', {});
   // });
-
-  res.render('index', {
+  res.render('index');
+}
+    // console.log("ouybgougy9uyboiuhbiuboubouhbohbjolblkjblkjhkjhkjhkjhkjhkjh");
     // user: req.user,
-    successMessage: req.flash('success')
+    // successMessage: req.flash('success')
       //                          |
-  }); //        default success message key from Passport
-});
-
+  // }); //        default success message key from Passport
+);
 module.exports = router;

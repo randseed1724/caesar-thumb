@@ -10,6 +10,9 @@ const session      = require('express-session');
 const passport     = require('passport');
 const flash        = require('connect-flash');
 const dotenv       = require('dotenv');
+const config       = require('config');
+//
+
 // Load our ENVIRONMENT VARIABLES from the .env file in dev
 // (this is for dev only, but in prod it just doesn't do anything)
 require('dotenv').config();
@@ -21,7 +24,7 @@ dotenv.load();
 require('./config/passport-config.js');
 
 
-// mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 
 const app = express();
 
@@ -39,6 +42,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(layouts);
 app.use( session({
   secret: 'Silence is  golden',
@@ -68,10 +72,18 @@ app.use((req, res, next) => {
 
 
 
-// OUR ROUTES HERE
-// ----------------------------------------------------------
+//ROUTES  <<<< -------------------------------------------------
+//^^^^^^  -------------------------------------------------
 const index = require('./routes/index');
 app.use('/', index);
+
+const auth = require('./routes/auth');
+app.use('/', auth);
+
+const userIn = require('./routes/user');
+app.use('/', userIn);
+
+
 // const myAuthRoutes = require('./routes/login/auth-routes.js');
 // app.use('/', myAuthRoutes);
 //
@@ -83,16 +95,6 @@ app.use('/', index);
 
 
 // ----------------------------------------------------------
-app.use(cookieParser('foo'));
-app.use(expressSession({
-secret : 'foo',
-cookie : {
-expires: false,
-domain: config.cookie.domain
-},
-store: redisSessionStore
-}));
-
 
 
 
