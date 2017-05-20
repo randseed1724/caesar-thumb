@@ -6,7 +6,7 @@
 var express = require('express');
 var app =  express();
 
-var debug = require('debug')('passport-app:server');
+var debug = require('debug')('caesar-thumb-app:server');
 var http = require('http');
 
 /**

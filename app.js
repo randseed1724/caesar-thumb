@@ -30,7 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Caeser Thump!';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -70,17 +70,18 @@ app.use((req, res, next) => {
 
 // OUR ROUTES HERE
 // ----------------------------------------------------------
-const index = require('./routes/index');
+const index = require('./routes/index.js');
 app.use('/', index);
+// const myAuthRoutes = require('./routes/login/auth-routes.js');
+// app.use('/', myAuthRoutes);
+//
+// const myUserRoutes = require('./routes/user/user-routes.js');
+// app.use('/', myUserRoutes);
+//
+// const myRoomRoutes = require('./routes/room-routes.js');
+// app.use('/', myRoomRoutes);
 
-const myAuthRoutes = require('./routes/login/auth-routes.js');
-app.use('/', myAuthRoutes);
 
-const myUserRoutes = require('./routes/user/user-routes.js');
-app.use('/', myUserRoutes);
-
-const myRoomRoutes = require('./routes/room-routes.js');
-app.use('/', myRoomRoutes);
 // ----------------------------------------------------------
 
 

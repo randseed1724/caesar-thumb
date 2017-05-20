@@ -1,0 +1,45 @@
+{
+  "name": "caesar-thumb-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "mon": "nodemon ./bin/www"
+  },
+  "description": "Web Application for contests",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.7",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-ejs-layouts": "^2.3.0",
+    "express-session": "^1.15.3",
+    "express-sessions": "^1.0.6",
+    "mongoose": "^4.9.10",
+    "morgan": "^1.8.1",
+    "multer": "^1.3.0",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "^2.4.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randseed1724/caesar-thumb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/randseed1724/caesar-thumb-/issues"
+  },
+  "homepage": "https://github.com/randseed1724/caesar-thumb-#readme"
+}

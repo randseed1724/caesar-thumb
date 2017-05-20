@@ -2,6 +2,8 @@ const express = require('express');
 const router  = express.Router();
 
 /* GET home page. */
+console.log('hi');
+
 router.get('/', (req, res, next) => {
   console.log('HOME ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
@@ -19,7 +21,10 @@ router.get('/', (req, res, next) => {
   //   res.render('index');
   // }
 
-  res.render('main-layout', {
+  //   res.render('index', {});
+  // });
+
+  res.render('index', {
     // user: req.user,
     successMessage: req.flash('success')
       //                          |
