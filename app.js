@@ -21,7 +21,7 @@ dotenv.load();
 require('./config/passport-config.js');
 
 
-mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect(process.env.MONGODB_URI);
 
 const app = express();
 
@@ -41,7 +41,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 app.use( session({
-  secret: 'my cool passport app',
+  secret: 'Silence is  golden',
 
   // these two options are there to prevent warnings in terminal
   resave: true,
@@ -70,7 +70,7 @@ app.use((req, res, next) => {
 
 // OUR ROUTES HERE
 // ----------------------------------------------------------
-const index = require('./routes/index.js');
+const index = require('./routes/index');
 app.use('/', index);
 // const myAuthRoutes = require('./routes/login/auth-routes.js');
 // app.use('/', myAuthRoutes);
@@ -83,6 +83,16 @@ app.use('/', index);
 
 
 // ----------------------------------------------------------
+app.use(cookieParser('foo'));
+app.use(expressSession({
+secret : 'foo',
+cookie : {
+expires: false,
+domain: config.cookie.domain
+},
+store: redisSessionStore
+}));
+
 
 
 
