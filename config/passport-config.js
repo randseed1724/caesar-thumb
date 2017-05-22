@@ -106,12 +106,12 @@ passport.use(new GoogleStrategy(
     //
     // console.log("profile:", profile);
     // console.log("done: ", done);
-    if (theUser) {
-        //       false in 2nd arg means "Log in failed!"
-        //         |
-      next(null, false, { message: 'Wrong username, buddy.' });
-      return;  //   |
-    }          //   v
+    // if (theUser) {
+    //     //       false in 2nd arg means "Log in failed!"
+    //     //         |
+    //   next(null, false, { message: 'Wrong username, buddy.' });
+    //   return;  //   |
+    // }          //   v
                // message -> req.flash('error')
 
     User.findOne(

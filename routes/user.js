@@ -32,7 +32,7 @@ routerUser.get('/profile/edit',
     //   return;
     // }
 
-    res.render('user/edit-profile-view.ejs', {
+    res.render('user-views/profile', {
       successMessage: req.flash('success')
     });
   }
