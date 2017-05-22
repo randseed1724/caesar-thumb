@@ -4,7 +4,7 @@
   <div class="error"> <%= errorMessage %> </div>
 <% } %>
 
-<form method="post" action="/signup">
+<!-- <form method="post" action="/signup">
   <label for="name-input"> Your Name </label>
   <input  id="name-input" type="text" name="signupName">
   <br>
@@ -18,19 +18,22 @@
   <br>
 
   <button> Sign Up </button>
-</form>
+</form> -->
 
-<a href="/auth/facebook">
-  Log In with Facebook
-</a>
-<br>
+<div class="col-sm-8 social-signup">
+  <a href="/auth/facebook"><img src="/images/fb-signup.png" /></a>
+</div>
+<div class="col-sm-8 social-signup">
+  <a href="/auth/google"><img src="/images/google-signup.png" /></a>
+</div>
 
-<a href="/auth/google">
-  Log In with Google
-</a>
-<br>
+<div class="col-sm-8 social-signup">
+<hr />
+</div>
 
+<div class="col-sm-12">
 <p>
   Do you already have an account?
   <a href="/login"> Log In </a>
 </p>
+</div>

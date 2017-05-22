@@ -83,9 +83,8 @@ app.use('/', auth);
 const userIn = require('./routes/user');
 app.use('/', userIn);
 
-
-// const myAuthRoutes = require('./routes/login/auth-routes.js');
-// app.use('/', myAuthRoutes);
+const myAuthRoutes = require('./routes/auth');
+app.use('/', myAuthRoutes);
 //
 // const myUserRoutes = require('./routes/user/user-routes.js');
 // app.use('/', myUserRoutes);

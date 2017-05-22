@@ -102,13 +102,23 @@ authRoutes.post('/signup',
           );
 
           // Redirect to home page if save is successful
-          res.redirect('/profile');
+          res.redirect('/check-email');
         });
       }
     );
   }
 );
 
+authRoutes.get('/check-email',
+//     redirects to '/login' if you are NOT logged in
+//                      |
+(req, res, next) => {
+
+res.render('auth/check-email', {
+  successMessage: req.flash('success')
+});
+}
+);
 
 authRoutes.get('/login',
     //        redirects to '/' (home page) if you ARE logged in
