@@ -47,35 +47,40 @@ passport.use( new FbStrategy(
     clientID: process.env.FB_APP_ID,          // Facebook App ID
     clientSecret: process.env.FB_APP_SECRET,  // Facebook App Secret
     callbackURL: '/auth/facebook/callback',
+    profileFields: ["id", "birthday", "emails", "first_name", "last_name", "gender", "picture.width(200).height(200)"],
+    passReqToCallback: true
   },           //            |
                // address for a route in our app
-  (accessToken, refreshToken, profile, done) => {
+  (req, accessToken, refreshToken, profile, done) => {
     console.log('');
     console.log('FACEBOOK PROFILE ~~~~~~~~~~~~~~~~~~~~~');
     console.log(profile);
     console.log('');
+    // Set the user's provider data and include tokens
+          var providerData = profile._json;
+          providerData.accessToken = accessToken;
+          providerData.refreshToken = refreshToken;
 
     User.findOne(
       { facebookID: profile.id },
-
       (err, foundUser) => {
         if (err) {
           done(err);
           return;
         }
-
         // If user is already registered, just log them in!
         if (foundUser) {
           done(null, foundUser);
           return;
         }
-
+        // Create the user OAuth profile
         // Register the user if they are not registered
         const theUser = new User({
           facebookID: profile.id,
-          name: profile.displayName,
-          profileImg: profile.picture.type(large),
+          name: profile.name.givenName,  // name: profile.displayName,
+          profileImg: profile.photos[0].value,
           email: profile.emails[0].value
+
         });
 
         theUser.save((err) => {

@@ -178,7 +178,7 @@ authRoutes.get('/auth/google', passport.authenticate('google', {
   //  callbackURL: '/auth/google/callback'
   //                        |
 authRoutes.get('/auth/google/callback', passport.authenticate('google', {
-  successRedirect: '/',
+  successRedirect: '/profile',
   failureRedirect: '/login'
 }));
 
