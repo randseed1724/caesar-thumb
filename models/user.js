@@ -8,12 +8,13 @@ const userSchema = new Schema(
   {
     // All users
     name: { type: String },
+    email: {type: String},
     role: {
       type: String,
       enum: [ 'normal user', 'admin' ],
       default: 'normal user'
     },
-    proofileImg: { type: String },
+    profileImg: { type: String },
 
     // Traditional registration users
     username: { type: String },

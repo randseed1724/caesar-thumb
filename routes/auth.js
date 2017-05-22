@@ -143,7 +143,7 @@ authRoutes.get('/logout', (req, res, next) => {
   // req.logout() method provided by Passport
   req.logout();
 
-  req.flash('success', 'You have logged out successfully. 🤠');
+  req.flash('success', 'You have logged out successfully.');
 
   res.redirect('/');
 });
@@ -151,7 +151,8 @@ authRoutes.get('/logout', (req, res, next) => {
 
   //                                                    facebook as in "FbStrategy"
   //                                                        |
-authRoutes.get('/auth/facebook', passport.authenticate('facebook'));
+authRoutes.get('/auth/facebook', passport.authenticate('facebook', {
+  scope: [ 'email' ] }));
   //                  |
   //  Link to this address to log in with Facebook
 
@@ -160,7 +161,7 @@ authRoutes.get('/auth/facebook', passport.authenticate('facebook'));
   //  callbackURL: '/auth/facebook/callback'
   //                        |
 authRoutes.get('/auth/facebook/callback', passport.authenticate('facebook', {
-  successRedirect: '/',
+  successRedirect: '/profile',
   failureRedirect: '/login'
 }));
 

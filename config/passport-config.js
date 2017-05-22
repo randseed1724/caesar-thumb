@@ -46,7 +46,7 @@ passport.use( new FbStrategy(
   {
     clientID: process.env.FB_APP_ID,          // Facebook App ID
     clientSecret: process.env.FB_APP_SECRET,  // Facebook App Secret
-    callbackURL: '/auth/facebook/callback'
+    callbackURL: '/auth/facebook/callback',
   },           //            |
                // address for a route in our app
   (accessToken, refreshToken, profile, done) => {
@@ -73,7 +73,9 @@ passport.use( new FbStrategy(
         // Register the user if they are not registered
         const theUser = new User({
           facebookID: profile.id,
-          name: profile.displayName
+          name: profile.displayName,
+          profileImg: profile.picture.type(large),
+          email: profile.emails[0].value
         });
 
         theUser.save((err) => {

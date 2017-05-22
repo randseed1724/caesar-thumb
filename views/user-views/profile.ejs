@@ -1,5 +1,11 @@
 <h2>This is your profile</h2>
 
+<p>Hi <%=user.name%>  </p>
+
+<p>Hi <%=user.email%>  </p>
+
+
+<img src="<%=user.profileImg%>" />
 
 <% if (typeof message !== "undefined") { %>
 <div class="success">  <%= success %> </div>
