@@ -22,15 +22,9 @@ authRoutes.get('/signup',
     //   return;
     // }
 
-    res.render('auth/signup', {
-    errorMessage: ''
-  });
-});
-
-
-
-
-
+    res.render('auth/signup');
+  }
+);
 
 
 // <form method="post" action="/signup">
@@ -45,13 +39,14 @@ authRoutes.post('/signup',
 
     // Don't let users submit blank usernames or passwords
     if (signupUsername === '' || signupPassword === '') {
-      res.render('auth/signup.ejs', {
+      res.render('auth/signup', {
         errorMessage: 'Please provide both username and password.'
       });
       return;
     }
 
     // Check password length, characters, etc. (we are ignoring that here)
+
     User.findOne(
       // 1st arg -> criteria of the findOne (which documents)
       { username: signupUsername },
@@ -87,7 +82,6 @@ authRoutes.post('/signup',
 
         // Save it
         theUser.save((err) => {
-
           if (err) {
             next(err);
             return;
@@ -102,22 +96,11 @@ authRoutes.post('/signup',
           );
 
           // Redirect to home page if save is successful
-          res.redirect('/check-email');
+          res.redirect('/');
         });
       }
     );
   }
-);
-
-authRoutes.get('/check-email',
-//     redirects to '/login' if you are NOT logged in
-//                      |
-(req, res, next) => {
-
-res.render('auth/check-email', {
-  successMessage: req.flash('success')
-});
-}
 );
 
 authRoutes.get('/login',
@@ -133,7 +116,7 @@ authRoutes.get('/login',
     //   return;
     // }
 
-    res.render('auth/login.ejs', {
+    res.render('auth/login', {
       errorMessage: req.flash('error')
         //                       |
     }); //    default name for error messages in Passport
@@ -160,7 +143,7 @@ authRoutes.get('/logout', (req, res, next) => {
   // req.logout() method provided by Passport
   req.logout();
 
-  req.flash('success', 'You have logged out successfully.');
+  req.flash('success', 'You have logged out successfully. 🤠');
 
   res.redirect('/');
 });

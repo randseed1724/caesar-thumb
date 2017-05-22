@@ -26,6 +26,39 @@ footer {
 
 /* ------------ ------------ END GENERAL  MODIFICATIONS ------------ ------------ */
 
+  /* ------------ ------------   LOGIN PAGE ------------ ------------ */
+
+#facebook {
+      background: #3b5998;
+      border-color: #3b5298;
+      width: 16%;
+      height: 3em;
+      border-radius: 10px;
+}
+#facebook a {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+#google {
+    background: #db4437;
+    border-color: #db4137;
+    width: 16%;
+    height: 3em;
+    border-radius: 10px;
+}
+#google a {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.login {
+  margin: auto;
+}
+
+
+/* ------------ ------------   END LOGIN PAGE ------------ ------------ */
+
 /* ------------ ------------   SIGNUP PAGE ------------ ------------ */
 
 .social-signup > a > img {

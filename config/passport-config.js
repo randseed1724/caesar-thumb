@@ -99,10 +99,20 @@ passport.use(new GoogleStrategy(
   },           //            |
                // address for a route in our app
   (accessToken, refreshToken, profile, done) => {
-    console.log('');
-    console.log('GOOGLE PROFILE ~~~~~~~~~~~~~~~~~~~~~');
-    console.log(profile);
-    console.log('');
+    // console.log('');
+    // console.log('GOOGLE PROFILE ~~~~~~~~~~~~~~~~~~~~~');
+    // console.log('accessToken:  ', accessToken);
+    // console.log("refreshToken: ", refreshToken);
+    //
+    // console.log("profile:", profile);
+    // console.log("done: ", done);
+    if (theUser) {
+        //       false in 2nd arg means "Log in failed!"
+        //         |
+      next(null, false, { message: 'Wrong username, buddy.' });
+      return;  //   |
+    }          //   v
+               // message -> req.flash('error')
 
     User.findOne(
       { googleID: profile.id },
@@ -179,7 +189,7 @@ passport.use( new LocalStrategy(
         if (!bcrypt.compareSync(loginPassword, theUser.encryptedPassword)) {
             //       false in 2nd arg means "Log in failed!"
             //         |
-          next(null, false, { message: 'Wrong password, friend. 😓' });
+          next(null, false, { message: 'Wrong password, friend.' });
           return;  //   |
         }          //   v
                    // message -> req.flash('error')
@@ -187,7 +197,7 @@ passport.use( new LocalStrategy(
         // Give Passport the user's details (SUCCESS!)
         next(null, theUser, {
           // message -> req.flash('success')
-          message: `Login for ${theUser.username} successful. 🤣`
+          message: `Login for ${theUser.username} successful.`
         });
           // -> this user goes to passport.serializeUser()
       }

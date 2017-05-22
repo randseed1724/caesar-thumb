@@ -8,9 +8,9 @@ const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 const session      = require('express-session');
 const passport     = require('passport');
-const flash        = require('connect-flash');
 const dotenv       = require('dotenv');
 const config       = require('config');
+const flash        = require('connect-flash');
 //
 
 // Load our ENVIRONMENT VARIABLES from the .env file in dev
