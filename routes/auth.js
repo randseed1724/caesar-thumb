@@ -160,7 +160,7 @@ authRoutes.get('/logout', (req, res, next) => {
   // req.logout() method provided by Passport
   req.logout();
 
-  req.flash('success', 'You have logged out successfully. 🤠');
+  req.flash('success', 'You have logged out successfully.');
 
   res.redirect('/');
 });
