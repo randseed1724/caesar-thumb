@@ -47,8 +47,7 @@ passport.use( new FbStrategy(
     clientID: process.env.FB_APP_ID,          // Facebook App ID
     clientSecret: process.env.FB_APP_SECRET,  // Facebook App Secret
     callbackURL: '/auth/facebook/callback',
-    profileFields: ["id", "birthday", "emails", "first_name", "last_name", "gender", "picture.width(200).height(200)"],
-    passReqToCallback: true
+    profileFields: ['id', 'displayName', 'photos', 'email']
   },           //            |
                // address for a route in our app
   (req, accessToken, refreshToken, profile, done) => {
@@ -78,9 +77,8 @@ passport.use( new FbStrategy(
         const theUser = new User({
           facebookID: profile.id,
           name: profile.name.givenName,  // name: profile.displayName,
-          profileImg: profile.photos[0].value,
-          email: profile.emails[0].value
-
+          profileImg: prfile.photos,
+          email: profile.email
         });
 
         theUser.save((err) => {
