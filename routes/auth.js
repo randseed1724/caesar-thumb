@@ -151,8 +151,7 @@ authRoutes.get('/logout', (req, res, next) => {
 
   //                                                    facebook as in "FbStrategy"
   //                                                        |
-authRoutes.get('/auth/facebook', passport.authenticate('facebook', {
-  scope: [ 'email' ] }));
+authRoutes.get('/auth/facebook', passport.authenticate('facebook', { scope: [ 'email' ] }));
   //                  |
   //  Link to this address to log in with Facebook
 

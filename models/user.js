@@ -7,8 +7,8 @@ const userSchema = new Schema(
   // 1st arg -> fields of the documents of this collection
   {
     // All users
-    name: { type: String },
-    email: {type: String},
+    name:  { type: String },
+    email: { type: String },
     role: {
       type: String,
       enum: [ 'normal user', 'admin' ],

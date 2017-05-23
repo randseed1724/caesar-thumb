@@ -41,13 +41,14 @@ passport.deserializeUser((userId, cb) => {
   });
 });
 
+passport.authorize('facebook', { scope : ['email'] });
 
 passport.use( new FbStrategy(
   {
     clientID: process.env.FB_APP_ID,          // Facebook App ID
     clientSecret: process.env.FB_APP_SECRET,  // Facebook App Secret
     callbackURL: '/auth/facebook/callback',
-    profileFields: ['id', 'displayName', 'photos', 'email']
+    profileFields: ['id', 'displayName', 'photos', 'emails'],
   },           //            |
                // address for a route in our app
   (req, accessToken, refreshToken, profile, done) => {
@@ -78,7 +79,7 @@ passport.use( new FbStrategy(
           facebookID: profile.id,
           name: profile.name.givenName,  // name: profile.displayName,
           profileImg: prfile.photos,
-          email: profile.email
+          email: profile.emails[0].value
         });
 
         theUser.save((err) => {
