@@ -2,7 +2,18 @@
 
 <p>Name: <%=user.name%>  </p>
 
-<p>Email: <%=user.email%>  </p>
+<% if (user.email === "undefined" ) { %>
+
+  <form action="/profile/" method="post">
+  <label for="email-input">Email missing during registration: </label>
+  <input id= "email-input" type="email" name="userEmail" placeholder="Write your email address"><br>
+  <input type="submit" value="Submit">
+  </form>
+
+<% } else { %>
+  <p>Email: <%=user.email%>  </p>
+<% } %>
+
 
 <p>Role: <%=user.role%>  </p>
 

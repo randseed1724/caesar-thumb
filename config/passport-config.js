@@ -41,7 +41,6 @@ passport.deserializeUser((userId, cb) => {
   });
 });
 
-passport.authorize('facebook', { scope : ['email'] });
 
 passport.use( new FbStrategy(
   {
@@ -51,11 +50,13 @@ passport.use( new FbStrategy(
     profileFields: ['id', 'displayName', 'photos', 'emails'],
   },           //            |
                // address for a route in our app
+
+
   (req, accessToken, refreshToken, profile, done) => {
     console.log('');
     console.log('FACEBOOK PROFILE ~~~~~~~~~~~~~~~~~~~~~');
-    console.log(profile);
-    console.log('');
+
+    console.log("PROFILE EMAIL 1111111111: " ,profile.emails[0].value);
     // Set the user's provider data and include tokens
           var providerData = profile._json;
           providerData.accessToken = accessToken;
@@ -73,12 +74,14 @@ passport.use( new FbStrategy(
           done(null, foundUser);
           return;
         }
+
         // Create the user OAuth profile
         // Register the user if they are not registered
+        console.log("PROFILE EMAIL 222222222222: " ,profile.emails[0].value);
         const theUser = new User({
           facebookID: profile.id,
           name: profile.name.givenName,  // name: profile.displayName,
-          profileImg: prfile.photos,
+          profileImg: profile.photos,
           email: profile.emails[0].value
         });
 

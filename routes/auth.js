@@ -160,6 +160,7 @@ authRoutes.get('/auth/facebook', passport.authenticate('facebook', { scope: [ 'e
   //  callbackURL: '/auth/facebook/callback'
   //                        |
 authRoutes.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  scope: ['email'],
   successRedirect: '/profile',
   failureRedirect: '/login'
 }));

@@ -38,6 +38,26 @@ routerUser.get('/profile/edit',
   }
 );
 
+// Add user email -------------------------------------------------------OOOOOOOOOO
+routerUser.post('/profile/', (req, res) => {
+  // What ES6 feature could we use to clean these two lines up?
+  User.findByIdAndUpdate(
+    req.user._id,
+     {
+      email: req.body.userEmail
+    },
+    (err, theUser) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      // req.flash('success', 'Changes saved');
+
+      res.redirect('/profile/');
+    }
+  );
+});
+
 // <form method="post" action="/profile/edit">
 routerUser.post('/profile/edit',
 
@@ -66,10 +86,7 @@ routerUser.post('/profile/edit',
           return;
         }
 
-        // const profileChanges = {
-        //   name: req.body.profileName,
-        //   username: req.body.profileUsername
-        // };
+
 
         // add updates from form
         req.user.name = req.body.profileName;
