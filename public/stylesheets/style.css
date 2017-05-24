@@ -9,22 +9,121 @@
 
 /* ------------ ------------ GENERAL  MODIFICATIONS ------------ ------------ */
 
+
+/* --------------------- -------------------HEADER BAR ----------------------- ------------------*/
+
+#userHeader {
+    background-color: transparent;
+    color: inherit;
+    display: inline-block;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    height: 27px;
+    line-height: 28px;
+    padding: 0 10px 1px;
+    position: relative;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+    color: white;
+}
+
+.navbar-ceasar {
+    background-color: #800020;
+    border-color: #650920;
+    box-shadow: 0px 8px 29px;
+}
+
 .navbar {
     height: 6em;
 }
 
 .navbar-brand > img {
-    width: 60px;
+    width: 70px;
 }
-.nav.navbar-nav {
+
+
+.picutureHeader {
+    background-color: transparent;
+    color: inherit;
+    display: inline-block;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    height: 27px;
+    line-height: 28px;
+    padding: 0 10px 1px;
+    position: relative;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+/* --------------------- -------------------NAVIGATION MENU ----------------------- ------------------*/
+@media (min-width: 768px) {
+.navigation {
     float: right;
+    margin: 0;
 }
+}
+
+#navigation {
+    float: right;
+    overflow: hidden;
+    position: relative;
+}
+#navigation ul {
+    padding: 0px;
+    position: relative;
+    left: 50%;
+    margin: 0px;
+}
+
+#navigation ul li {
+   display:block;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   right:50%;
+}
+#navigation ul li a {
+    display: block;
+    margin: 0 0 0 1px;
+    padding: 3px 10px;
+    background: #800020;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1.3em;
+}
+#navigation ul li a:hover {
+   background:#369;
+   color:#fff;
+}
+#navigation ul li a.active,
+#navigation ul li a.active:hover {
+   color:#fff;
+   background:#000;
+   font-weight:bold;
+}
+
+
+
+
+
 
 footer {
     background-color: rgba(232, 231, 231, 0.65);
 }
 
 /* ------------ ------------ END GENERAL  MODIFICATIONS ------------ ------------ */
+
+
+/* --------------------- --- END HEADER BAR ----------------------- -------------*/
+
 
   /* ------------ ------------   LOGIN PAGE ------------ ------------ */
 

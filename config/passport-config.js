@@ -53,10 +53,7 @@ passport.use( new FbStrategy(
 
 
   (req, accessToken, refreshToken, profile, done) => {
-    console.log('');
-    console.log('FACEBOOK PROFILE ~~~~~~~~~~~~~~~~~~~~~');
 
-    console.log("PROFILE EMAIL 1111111111: " ,profile.emails[0].value);
     // Set the user's provider data and include tokens
           var providerData = profile._json;
           providerData.accessToken = accessToken;
@@ -77,11 +74,10 @@ passport.use( new FbStrategy(
 
         // Create the user OAuth profile
         // Register the user if they are not registered
-        console.log("PROFILE EMAIL 222222222222: " ,profile.emails[0].value);
         const theUser = new User({
           facebookID: profile.id,
-          name: profile.name.givenName,  // name: profile.displayName,
-          profileImg: profile.photos,
+          name: profile.displayName,
+          profileImg: profile.photos[0].value,
           email: profile.emails[0].value
         });
 
@@ -141,7 +137,9 @@ passport.use(new GoogleStrategy(
         // Register the user if they are not registered
         const theUser = new User({
           googleID: profile.id,
-          name: profile.displayName
+          name: profile.displayName,
+          email: profile.emails[0].value,
+          profileImg: profile.photos[0].value,
         });
 
         // If name is empty, save the email as the "name".

@@ -15,18 +15,8 @@
 <% } %>
 
 
-<p>Role: <%=user.role%>  </p>
+<img src="http://graph.facebook.com/<%=user.facebookID%>/picture?type=large" />
 
-<p>Profile Image: <img src="http://graph.facebook.com/<%=user.facebookID%>/picture?type=large" </p>
-
-<p>facebookID: <%=user.facebookID%>  </p>
-
-
-<img src="<%=user.profileImg%>" />
-
-<% if (typeof message !== "undefined") { %>
-<div class="success">  <%= success %> </div>
-<% } %>
 
 
 <% if (typeof message !== "undefined") { %>

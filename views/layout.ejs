@@ -13,7 +13,7 @@
     </head>
     <body>
       <!-- Navigation -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <nav class="navbar navbar-ceasar navbar-fixed-top" role="navigation">
           <div class="container">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
@@ -28,24 +28,34 @@
                   </a>
               </div>
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">
 
+                <% if (typeof user !== 'undefined') { %>
+                <div id="picutureHeader"><img src="http://graph.facebook.com/<%=user.facebookID%>/picture?type=small"</div>
+                  <p id="userHeader"><%=user.name%></p>
+                <% } %>
+
+
+                    <div id="navigation">
+                      <ul>
                     <% if (typeof user !== 'undefined') { %>
                     <% if (user.role === 'admin') { %>
                         <li> <a href="/users"> Manage Users </a> </li>
                     <% } %>
-                        <li> <a href="/rooms">Rooms</a></li>
+                        <li> <a href="/rooms">Contest</a></li>
                         <li> <a href="/profile">Profile</a></li>
                         <li> <a href="/logout">Log Out</a></li>
                      <% } else { %>
                         <li><a href="/login">Log In</a></li>
                         <li><a href="/signup">Sign Up</a></li>
                     <% } %>
-                  </ul>
+                     </ul>
+                   </div>
+
+
               </div>
           </div>
       </nav>
-      <!-- END NAVIGATION -->
+
 
 
       <!-- Page Content -->
