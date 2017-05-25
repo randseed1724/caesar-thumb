@@ -100,7 +100,8 @@ passport.use(new GoogleStrategy(
   {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: '/auth/google/callback'
+    callbackURL: '/auth/google/callback',
+    profileFields: ['id', 'displayName', 'photos', 'emails'],
   },           //            |
                // address for a route in our app
   (accessToken, refreshToken, profile, done) => {
@@ -138,8 +139,8 @@ passport.use(new GoogleStrategy(
         const theUser = new User({
           googleID: profile.id,
           name: profile.displayName,
-          email: profile.emails[0].value,
           profileImg: profile.photos[0].value,
+          email: profile.emails[0].value
         });
 
         // If name is empty, save the email as the "name".
