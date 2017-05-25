@@ -12,7 +12,7 @@ routerUser.get('/profile',
 ensure.ensureLoggedIn('/login'),
 (req, res, next) => {
 
-res.render('user-views/profile.ejs', {
+res.render('user/profile.ejs', {
   successMessage: req.flash('success')
 });
 }
@@ -32,7 +32,7 @@ routerUser.get('/profile/edit',
     //   return;
     // }
 
-    res.render('user-views/profile', {
+    res.render('user/profile', {
       successMessage: req.flash('success')
     });
   }

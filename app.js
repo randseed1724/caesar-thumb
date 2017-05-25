@@ -89,17 +89,17 @@ app.use('/', myAuthRoutes);
 const contest = require('./routes/contest');
 app.use('/', contest);
 
-const video = require('./routes/contest-category/video');
-app.use('/', video);
-
-const photo = require('./routes/contest-category/photo');
-app.use('/', photo);
-
-const music = require('./routes/contest-category/music');
-app.use('/', music);
-
-const other = require('./routes/contest-category/other');
-app.use('/', other);
+// const video = require('./routes/contest-category/video');
+// app.use('/', video);
+//
+// const photo = require('./routes/contest-category/photo');
+// app.use('/', photo);
+//
+// const music = require('./routes/contest-category/music');
+// app.use('/', music);
+//
+// const other = require('./routes/contest-category/other');
+// app.use('/', other);
 //
 // const myUserRoutes = require('./routes/user/user-routes.js');
 // app.use('/', myUserRoutes);
