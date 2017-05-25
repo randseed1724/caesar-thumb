@@ -9,6 +9,11 @@ const roomSchema = new Schema(
     name: { type: String },
     description: { type: String },
     photoAddress: { type: String },
+    category: { type: String,
+      categories: [ 'normal user', 'admin' ],
+      default: 'admin'
+    },
+
 
     // reference the ID of the user
     owner: { type: Schema.Types.ObjectId }

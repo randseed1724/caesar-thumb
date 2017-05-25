@@ -108,7 +108,7 @@
         position: static !important;
     }
     .dropdown.dropdown-lg .dropdown-menu {
-        min-width: 500px;
+        min-width: 400px;
     }
 }
 
@@ -154,10 +154,12 @@
     font-weight: bold;
     text-decoration: none;
     line-height: 1.3em;
+    border-radius: 13px;
 }
 #navigation ul li a:hover {
-   background:#369;
-   color:#fff;
+    background: #bd1c44;
+    color: #fff;
+    border-radius: 13px;
 }
 #navigation ul li a.active,
 #navigation ul li a.active:hover {
