@@ -23,17 +23,52 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="/">
-                      <img src="/images/ceaser-logo.png" alt="">
+                  <a class="brand" href="/">
+                      <img src="/images/ceaser-logo.png" alt="ceasar-thump-logo">
                   </a>
               </div>
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                <% if (typeof user !== 'undefined') { %>
-                <div id="picutureHeader"><img src="http://graph.facebook.com/<%=user.facebookID%>/picture?type=small"</div>
-                  <p id="userHeader"><%=user.name%></p>
-                <% } %>
-
+<!-- SEARCH BOX -->
+                <div class="input-group" id="adv-search">
+                <input type="text" class="form-control" placeholder="Search for Contests" />
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form class="form-horizontal" role="form">
+                                  <div class="form-group">
+                                    <label for="filter">Filter by</label>
+                                    <select class="form-control">
+                                        <option value="0" selected>All Snippets</option>
+                                        <option value="1">Featured</option>
+                                        <option value="2">Most popular</option>
+                                        <option value="3">Top rated</option>
+                                        <option value="4">Most commented</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="contain">Author</label>
+                                    <input class="form-control" type="text" />
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="contain">Contains the words</label>
+                                    <input class="form-control" type="text" />
+                                  </div>
+                                  <button type="submit" class="btn btn-secundary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+            </div>
+<!-- END SEARCH BOX -->
+                    <% if (typeof user !== 'undefined') { %>
+                    <div id="picutureHeader"><img src="http://graph.facebook.com/<%=user.facebookID%>/picture?type=small"</div>
+                      <p id="userHeader"><%=user.name%></p>
+                    <% } %>
 
                     <div id="navigation">
                       <ul>
