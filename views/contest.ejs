@@ -1,3 +1,4 @@
+<!--container #1 -->
 <div class="container">
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
@@ -19,119 +20,110 @@
             </div>
         </div>
     </div>
+
     <form role="form">
         <div class="row setup-content" id="step-3">
-            <div class="col-xs-12">
-                <div class="col-md-12">
-                    <h3>Payment Form</h3>
-                    <br/>
+            <div class="col-xs-12 paddingBottom4em">
+                <div class="col-md-12 ">
+                    <h3>Award</h3>
+                      <br/>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Contest Name</label>
-                                <input  maxlength="100" type="text" required="required" class="form-control" placeholder="Give your contest a name"  />
+                                <label class="control-label">Describe the award your will be givin to the winner.</label>
+                                <textarea  maxlength="100" type="text" required="required" class="form-control" placeholder="Provide information about the amount of money, recognation or kind of product the winner will get"></textarea>
                             </div>
                         </div>
-                              <div class="col-md-6">
-                                  <div class="form-group">
-                                      <label for="subject">
-                                          Type of Award</label>
-                                      <select id="subject" name="subject" class="form-control" required="required">
-                                          <option value="Cash">Money</option>
-                                          <option value="Digital">Digital Product</option>
-                                          <option value="Physical">Physical Product</option>
-                                          <option value="Service">Free Service</option>
-                                          <option value="Recognition">Recognition</option>
-                                      </select>
-                                  </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="subject">
+                                     How many winners will your contest have?
+                                </label>
+                                <select id="subject" name="subject" class="form-control" required="required">
+                                          <option value="one">1</option>
+                                          <option value="two">2</option>
+                                          <option value="three">3</option>
+                                          <option value="four">4</option>
+                                          <option value="five">5</option>
+                                </select>
                               </div>
+                         </div>
                                 <!-- <label class="control-label">EIN (used to verify your business)</label>
                                 <input  maxlength="10" type="text" required="required" class="form-control" placeholder="12-3456789"  /> -->
-                        <div class="col-md-6">
-                              <div class="form-group">
-                                    <label class="control-label">How to get Ceasar's Thump up!</label>
-                                    <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Shortly describe what contestants should do in order to get Ceasar's Thump up!"></textarea>
-                              </div>
-                        </div>
-                        <div class="col-md-6">
-                              <div class="form-group">
-                                    <label class="control-label">Tell us about you</label>
-                                    <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Let contest participants know about you"></textarea>
-                              </div>
-                        </div>
-                        <div class="col-md-12">
-                              <div class="form-group">
-                                    <label class="control-label">Contest description</label>
-                                    <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Describe your contest here"></textarea>
-                              </div>
-                        </div>
 
+                         <div class="col-md-12">
+                              <div class="form-group">
+                                  <label class="control-label">How will you be providing the award?</label>
+                                  <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Let contest participants know about you"></textarea>
+                              </div>
+                         </div>
                     </div>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
                 </div>
             </div>
         </div>
     </form>
-<form role="form">
-    <div class="row setup-content" id="step-2">
-        <div class="col-xs-12">
-            <div class="col-md-12">
-                <h3>Contest Information</h3>
-                <br/>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label">Contest Name</label>
-                            <input  maxlength="100" type="text" required="required" class="form-control" placeholder="Give your contest a name"  />
-                        </div>
-                    </div>
-                          <div class="col-md-6">
-                              <div class="form-group">
-                                  <label for="subject">
-                                      Type of Award</label>
-                                  <select id="subject" name="subject" class="form-control" required="required">
-                                      <option value="Cash">Money</option>
-                                      <option value="Digital">Digital Product</option>
-                                      <option value="Physical">Physical Product</option>
-                                      <option value="Service">Free Service</option>
-                                      <option value="Recognition">Recognition</option>
-                                  </select>
-                              </div>
-                          </div>
+    <form role="form">
+          <div class="row setup-content" id="step-2">
+              <div class="col-xs-12 paddingBottom4em">
+                  <div class="col-md-12">
+                      <h3>Contest Information</h3>
+                          <br/>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Contest Name</label>
+                                    <input  maxlength="100" type="text" required="required" class="form-control" placeholder="Give your contest a name"  />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="subject">
+                                      Type of Award
+                                    </label>
+                                    <select id="subject" name="subject" class="form-control" required="required">
+                                          <option value="Cash">Money</option>
+                                          <option value="Digital">Digital Product</option>
+                                          <option value="Physical">Physical Product</option>
+                                          <option value="Service">Free Service</option>
+                                          <option value="Recognition">Recognition</option>
+                                    </select>
+                                </div>
+                            </div>
                             <!-- <label class="control-label">EIN (used to verify your business)</label>
                             <input  maxlength="10" type="text" required="required" class="form-control" placeholder="12-3456789"  /> -->
-                    <div class="col-md-6">
-                          <div class="form-group">
-                                <label class="control-label">How to get Ceasar's Thump up!</label>
-                                <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Shortly describe what contestants should do in order to get Ceasar's Thump up!"></textarea>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">How to get Ceasar's Thump up!</label>
+                                    <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Shortly describe what contestants should do in order to get Ceasar's Thump up!"></textarea>
+                                </div>
                           </div>
-                    </div>
-                    <div class="col-md-6">
-                          <div class="form-group">
-                                <label class="control-label">Tell us about you</label>
-                                <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Let contest participants know about you"></textarea>
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                    <label class="control-label">Tell us about you</label>
+                                    <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Let contest participants know about you"></textarea>
+                              </div>
                           </div>
-                    </div>
-                    <div class="col-md-12">
-                          <div class="form-group">
-                                <label class="control-label">Contest description</label>
-                                <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Describe your contest here"></textarea>
-                          </div>
-                    </div>
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                    <label class="control-label">Contest description</label>
+                                    <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Describe your contest here"></textarea>
+                              </div>
+                        </div>
+                  </div>
+                      <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+              </div>
+          </div>
+      </div>
+  </form>
 
-                </div>
-                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
-            </div>
-        </div>
-    </div>
-</form>
-<div class="row setup-content" id="step-1">
-    <div class="col-xs-12">
+
+  <form role="form">
+  <div class="row setup-content" id="step-1">
+    <div class="col-xs-12 paddingBottom4em">
         <div class="col-md-12">
             <div class="container">
-                <h3>Chose a Category</h3>
+                <h3>Choose a Category</h3>
                 <br/>
-                <div class="row">
 
-                </div>
 	                <ul class="listrap">
                         <li class="col-md-6">
                             <div class="listrap-toggle">
@@ -156,26 +148,42 @@
                             </div>
                             <strong>Music</strong>
                         </li>
+                        <li class="col-md-6">
+                            <div class="listrap-toggle">
+                                <span></span>
+                                <img src="/images/pen.svg"  />
+                            </div>
+                            <strong>Writing</strong>
+                        </li>
                     </ul>
+
+                    <div class="col-md-12">
+                      <h3>Upload an image that represents your contest</h3>
+                      <form action="/action_page.php">
+                        <input type="file" name="pic" accept="image/*">
+                      </form>
+                    </div>
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </form>
+    <form role="form">
+        <div class="row setup-content" id="step-4">
+            <div class="col-xs-12 paddingBottom4em">
+                <div class="col-md-12">
+                    <h3>Almost Done!</h3>
+                    <p>
+                      All you have to do is to click the submit button.<br/>
+                      You can go back and review/edit your project details if you want.
+                      <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Submit</button>
+                    </p>
+                    <div class="form-group">
+                    </div>
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
-    </div>
-</div>
-<form role="form">
-    <div class="row setup-content" id="step-4">
-        <div class="col-xs-12">
-            <div class="col-md-12">
-                <h3>Everything is Set</h3>
-                <p>
-                  Find your contest in your profile or in Home page.
-                </p>
-                <div class="form-group">
-                </div>
-            </div>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
-        </div>
-    </div>
-</form>
+    </form>
+  </div>
 </div>

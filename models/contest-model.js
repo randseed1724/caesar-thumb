@@ -1,23 +1,30 @@
 const mongoose = require('mongoose');
 
-// const User = require('./user-model.js');
+const User = require('./user.js');
+
+
 
 const Schema = mongoose.Schema;
 
-const roomSchema = new Schema(
+const contestSchema = new Schema(
   {
-    name: { type: String },
-    description: { type: String },
-    photoAddress: { type: String },
     category: { type: String,
-      categories: [ 'normal user', 'admin' ],
-      default: 'admin'
+      categories: [ 'photography', 'videos', 'music', 'writing' ],
+      default: 'no-category'
     },
-
+    contestImage: { type: String },
+    name: { type: String },
+    awardType: { type: String },
+    caesarThump: { type: String },
+    aboutYou: { type: String },
+    contestDescription: { type: String },
+    awardDescription: { type: String },
+    totalWinners: { type: Number },
+    providingAward: { type: String },
 
     // reference the ID of the user
-    owner: { type: Schema.Types.ObjectId }
-
+    // owner: { type: Schema.Types.ObjectId }
+    creator: { type: Schema.Types.ObjectId }
     // user as a subdocument
     // owner: { type: User.schema }
   },
@@ -26,7 +33,7 @@ const roomSchema = new Schema(
   }
 );
 
-const Room = mongoose.model('Room', roomSchema);
+const Contest = mongoose.model('Contest', contestSchema);
 
 
-module.exports = Room;
+module.exports = Contest;
