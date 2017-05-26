@@ -17,5 +17,15 @@ contest.get('/contest',
   }
 );
 
+contest.post('/contest/submit',
+  // We need to be logged in to see contest page
+  ensure.ensureLoggedIn('/login'),
+
+  (req, res, next) => {
+    console.log('HEREEEEEE!:   ',req.body);
+    res.render('contest');
+  }
+);
+
 
 module.exports = contest;

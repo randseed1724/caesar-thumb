@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <form role="form">
+    <form role="form" id="form1">
         <div class="row setup-content" id="step-3">
             <div class="col-xs-12 paddingBottom4em">
                 <div class="col-md-12 ">
@@ -61,8 +61,8 @@
                 </div>
             </div>
         </div>
-    </form>
-    <form role="form">
+    <!-- </form> -->
+    <form role="form" id="form2">
           <div class="row setup-content" id="step-2">
               <div class="col-xs-12 paddingBottom4em">
                   <div class="col-md-12">
@@ -87,6 +87,7 @@
                                           <option value="Recognition">Recognition</option>
                                     </select>
                                 </div>
+
                             </div>
                             <!-- <label class="control-label">EIN (used to verify your business)</label>
                             <input  maxlength="10" type="text" required="required" class="form-control" placeholder="12-3456789"  /> -->
@@ -113,10 +114,10 @@
               </div>
           </div>
       </div>
-  </form>
+  <!-- </form> -->
 
 
-  <form role="form">
+  <form role="form" id="form3">
   <div class="row setup-content" id="step-1">
     <div class="col-xs-12 paddingBottom4em">
         <div class="col-md-12">
@@ -161,15 +162,15 @@
                       <h3>Upload an image that represents your contest</h3>
                       <form action="/action_page.php">
                         <input type="file" name="pic" accept="image/*">
-                      </form>
+                      <!-- </form> -->
                     </div>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
                 </div>
               </div>
             </div>
           </div>
-    </form>
-    <form role="form">
+    <!-- </form> -->
+    <form role="form" id="form4" action="/contest/submit" method="post">
         <div class="row setup-content" id="step-4">
             <div class="col-xs-12 paddingBottom4em">
                 <div class="col-md-12">
@@ -177,13 +178,38 @@
                     <p>
                       All you have to do is to click the submit button.<br/>
                       You can go back and review/edit your project details if you want.
-                      <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Submit</button>
+                      <!-- <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Submit</button> -->
+<!-- <input type="submit" value="Submit Comment" /> -->
                     </p>
-                    <div class="form-group">
-                    </div>
+                    <!-- <div class="form-group">
+                    </div> -->
+                    <input type="submit" value="Submit Comment" />
+
                 </div>
             </div>
         </div>
     </form>
   </div>
 </div>
+
+
+   <!-- <script src="http://malsup.github.com/jquery.form.js"></script>
+
+   <script>
+       // wait for the DOM to be loaded
+       $(document).ready(function() {
+           // bind 'myForm' and provide a simple callback function
+           $('#form1').ajaxForm(function() {
+               alert("Thank you for your comment!");
+           });
+           $('#form2').ajaxForm(function() {
+               alert("Thank you for your comment!");
+           });
+           $('#form3').ajaxForm(function() {
+               alert("Thank you for your comment!");
+           });
+           $('#form4').ajaxForm(function() {
+               alert("Thank you for your comment!");
+           });
+       });
+   </script> -->
