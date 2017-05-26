@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <form role="form" id="form1">
+    <form role="form" id="form1" action="/contest/submit" method="post">
         <div class="row setup-content" id="step-3">
             <div class="col-xs-12 paddingBottom4em">
                 <div class="col-md-12 ">
@@ -62,7 +62,7 @@
             </div>
         </div>
     <!-- </form> -->
-    <form role="form" id="form2">
+    <!-- <form role="form" id="form2"> -->
           <div class="row setup-content" id="step-2">
               <div class="col-xs-12 paddingBottom4em">
                   <div class="col-md-12">
@@ -71,7 +71,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Contest Name</label>
-                                    <input  maxlength="100" type="text" required="required" class="form-control" placeholder="Give your contest a name"  />
+                                    <input  maxlength="100" type="text" required="required" class="form-control" name="contest-name" placeholder="Give your contest a name"  />
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -117,7 +117,7 @@
   <!-- </form> -->
 
 
-  <form role="form" id="form3">
+  <!-- <form role="form" id="form3"> -->
   <div class="row setup-content" id="step-1">
     <div class="col-xs-12 paddingBottom4em">
         <div class="col-md-12">
@@ -170,7 +170,7 @@
             </div>
           </div>
     <!-- </form> -->
-    <form role="form" id="form4" action="/contest/submit" method="post">
+    <!-- <form role="form" id="form4" action="/contest/submit" method="post"> -->
         <div class="row setup-content" id="step-4">
             <div class="col-xs-12 paddingBottom4em">
                 <div class="col-md-12">
@@ -178,12 +178,12 @@
                     <p>
                       All you have to do is to click the submit button.<br/>
                       You can go back and review/edit your project details if you want.
-                      <!-- <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Submit</button> -->
+                      <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Submit</button>
 <!-- <input type="submit" value="Submit Comment" /> -->
                     </p>
                     <!-- <div class="form-group">
                     </div> -->
-                    <input type="submit" value="Submit Comment" />
+                    <!-- <input type="submit" value="Submit Comment" /> -->
 
                 </div>
             </div>
