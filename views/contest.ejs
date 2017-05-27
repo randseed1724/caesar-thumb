@@ -22,9 +22,11 @@
     </div>
 
     <form role="form" id="form1" action="/contest/submit" method="post">
+      <!-- STEP 4-->
         <div class="row setup-content" id="step-3">
             <div class="col-xs-12 paddingBottom4em">
                 <div class="col-md-12 ">
+                  <div class="container">
                     <h3>Award</h3>
                       <br/>
                         <div class="col-md-6">
@@ -57,13 +59,14 @@
                     </div>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
                 </div>
+              </div>
             </div>
-        </div>
 
 
           <div class="row setup-content" id="step-2">
               <div class="col-xs-12 paddingBottom4em">
                   <div class="col-md-12">
+                    <div class="container">
                       <h3>Contest Information</h3>
                           <br/>
                             <div class="col-md-6">
@@ -114,22 +117,12 @@
             </div>
 
 
-  <!-- <form role="form" id="form3"> -->
   <div class="row setup-content" id="step-1">
     <div class="col-xs-12 paddingBottom4em">
         <div class="col-md-12">
             <div class="container">
                 <h3>Choose a Category</h3>
                 <br/>
-
-                <!-- <input class="form-control" required="required" list="typeAwards"  value="Money">
-                <datalist id="typeAwards">
-                    <option value="Cash">Money</option>
-                    <option value="Digital">Digital Product</option>
-                    <option value="Physical">Physical Product</option>
-                    <option value="Service">Free Service</option>
-                    <option value="Recognition">Recognition</option>
-                </datalist> -->
 
 
                 <div class="col-md-12">
@@ -139,19 +132,22 @@
                  <input equired="required" type="checkbox" name="writing" value="writing" >Writing<br>
                </div>
 
+               <br/>
+               <h3 class="padtop3">Upload an image that represents your contest</h3>
+             <br/>
                     <div class="col-md-12">
-                      <h3>Upload an image that represents your contest</h3>
                         <input type="file" name="contestImage" required="required" accept="image/*">
                     </div>
-
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
                 </div>
               </div>
+              </div>
             </div>
-          </div>
+            <!-- STEP 4-->
         <div class="row setup-content" id="step-4">
             <div class="col-xs-12 paddingBottom4em">
                 <div class="col-md-12">
+                  <div class="container">
                     <h3>Almost Done!</h3>
                     <p>
                       All you have to do is to click the submit button.<br/>
@@ -162,10 +158,9 @@
                     <div class="form-group">
                     </div>
                     <!-- <input type="submit" value="Submit Comment" /> -->
-
+                    </div>
                 </div>
             </div>
         </div>
     </form>
   </div>
-</div>
