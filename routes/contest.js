@@ -5,7 +5,7 @@ const path = require('path');
 const contest = express.Router();
 
 const Contest = require('../models/contest-model');
-app.use('/', Contest);
+
 /* GET contest page. */
 
 contest.get('/contest',
@@ -22,9 +22,17 @@ contest.get('/contest/review',
   ensure.ensureLoggedIn('/login'),
 
   (req, res, next) => {
-    res.render('contest/review');
-  }
-);
+    Contest.find((err, contestHere) => {
+    if(err){
+      next(err);
+      return;
+    }
+    res.render('contest/review', {
+    contestH: contestHere
+  });
+ });
+});
+
 
 contest.post('/contest/review',
   // We need to be logged in to see contest page
