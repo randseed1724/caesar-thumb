@@ -17,8 +17,6 @@ $(document).ready(function () {
             allWells.hide();
             $target.show();
             $target.find('input:eq(0)').focus();
-            $target.find('textarea:eq(0)').focus();
-
         }
     });
 
@@ -35,7 +33,7 @@ $(document).ready(function () {
 
         $(".form-group").removeClass("has-error");
         for(var i=0; i<curInputs.length; i++){
-            console.log(curInputs[i].validity);
+            // console.log(curInputs[i].validity);
             if (!curInputs[i].validity.valid){
                 isValid = false;
                 $(curInputs[i]).closest(".form-group").addClass("has-error");

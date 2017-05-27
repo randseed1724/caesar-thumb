@@ -17,15 +17,25 @@ contest.get('/contest',
   }
 );
 
-contest.post('/contest/submit',
+contest.get('/contest/review',
+  // We need to be logged in to see contest page
+  ensure.ensureLoggedIn('/login'),
+
+  (req, res, next) => {
+    res.render('contest/review');
+  }
+);
+
+contest.post('/contest/review',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
 
   (req, res, next) => {
     console.log('HEREEEEEE!:   ',req.body);
-    res.render('contest');
+    res.redirect('/contest/review');
   }
 );
+
 
 
 module.exports = contest;
