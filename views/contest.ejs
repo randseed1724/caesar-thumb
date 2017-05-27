@@ -38,7 +38,7 @@
                                 <label for="subject">
                                      How many winners will your contest have?
                                 </label>
-                                <select id="subject" name="manyWinners" class="form-control" required="required">
+                                <select id="subject" form="form1" name="manyWinners" class="form-control" required="required">
                                           <option value="one">1</option>
                                           <option value="two">2</option>
                                           <option value="three">3</option>
@@ -79,23 +79,15 @@
                                     <label for="subject">
                                       Type of Award
                                     </label>
-                                    <select id="subject" name="typeAward" required="required" class="form-control" required="required">
 
-
-
-                                      <input list="typeAwards">
-                                      <datalist id="typeAwards">
-                                          <option value="Cash">Money</option>
-                                          <option value="Digital">Digital Product</option>
-                                          <option value="Physical">Physical Product</option>
-                                          <option value="Service">Free Service</option>
-                                          <option value="Recognition">Recognition</option>
-                                      </datalist>
-
-
-
-
-                                    </select>
+                                        <select id="subject" name="typeAward" required="required" class="form-control" required="required">
+                                              <option value="Cash">Money</option>
+                                              <option value="Digital">Digital Product</option>
+                                              <option value="Physical">Physical Product</option>
+                                              <option value="Service">Free Service</option>
+                                              <option value="Recognition">Recognition</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                             </div>
@@ -135,8 +127,17 @@
                 <h3>Choose a Category</h3>
                 <br/>
 
+                <!-- <input class="form-control" required="required" list="typeAwards"  value="Money">
+                <datalist id="typeAwards">
+                    <option value="Cash">Money</option>
+                    <option value="Digital">Digital Product</option>
+                    <option value="Physical">Physical Product</option>
+                    <option value="Service">Free Service</option>
+                    <option value="Recognition">Recognition</option>
+                </datalist> -->
+
 	                <ul class="listrap">
-                        <li class="col-md-6">
+                        <li class="col-md-2">
                             <div class="listrap-toggle">
                                 <span></span>
                                 <img src="/images/photo-camera.svg"  />
@@ -144,7 +145,7 @@
                             <strong>Photography</strong>
                         </li>
 
-                        <li class="col-md-6">
+                        <li class="col-md-2">
                             <div class="listrap-toggle">
                                 <span></span>
                                 <img src="/images/film.svg"  />
@@ -152,25 +153,32 @@
                             <strong>Videos</strong>
                         </li>
 
-                        <li class="col-md-6">
+
+                        <li class="col-md-2">
                             <div class="listrap-toggle">
                                 <span></span>
                                 <img src="/images/headphones.svg"  />
                             </div>
                             <strong>Music</strong>
                         </li>
-                        <li class="col-md-6">
+                        <li class="col-md-2">
                             <div class="listrap-toggle">
                                 <span></span>
                                 <img src="/images/pen.svg"  />
                             </div>
                             <strong>Writing</strong>
                         </li>
+
+                        <li class="col-md-2">
+                              <label> </label>
+                              <input height="40px" list="category" maxlength="100" type="text" required="required" class="form-control" name="chosenCategory" placeholder="Select a category"  />
+
+                        </li>
                     </ul>
 
                     <div class="col-md-12">
                       <h3>Upload an image that represents your contest</h3>
-                      <form action="/action_page.php">
+
                         <input type="file" name="contestImage" required="required" accept="image/*">
                     </div>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
@@ -195,7 +203,6 @@
                 </div>
             </div>
         </div>
-    </form>
   </div>
 </div>
 
