@@ -21,16 +21,36 @@ $(document).ready(function () {
     });
 
     allNextBtn.click(function(){
-      console.log(' THIS: ',$(this));
+
+
+      // make an array of all the inputs (with jquery)
+      // loop through the Array
+      // for each one, check if the length of the value is at east 1
+      // if so set isValud = to true
+var all =  $(".setup-content").find('input');
+
+      console.log('all imputs', all);
+
+      var inputValues = $("input").map(function(){
+        return $(this).val();
+      }).get();
+
+console.log("inputValues: ------------->", inputValues);
+
+
+
+
+
+      // console.log(' THIS: ',$(this));
         var curStep = $(this).closest(".setup-content"),
             curStepBtn = curStep.attr("id"),
             nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-            curInputs = curStep.find("input[type='text'],input[type='url']"),
+            curInputs = curStep.find("input"),
             isValid = true;
 
         $(".form-group").removeClass("has-error");
         for(var i=0; i<curInputs.length; i++){
-            console.log(curInputs[i].validity);
+            // console.log(curInputs[i].validity);
             if (!curInputs[i].validity.valid){
                 isValid = false;
                 $(curInputs[i]).closest(".form-group").addClass("has-error");
@@ -70,6 +90,6 @@ jQuery.fn.extend({
 });
 $(document).ready(function () {
     $(".listrap").listrap().on("selection-changed", function (event, selection) {
-        console.log(selection);
+        // console.log(selection);
     });
 });
