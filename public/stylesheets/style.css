@@ -16,7 +16,10 @@ body{
 .paddingBottom4em {
   padding-bottom: 4em;
 }
-
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
 
 /* --------------------- -------------------HEADER BAR ----------------------- ------------------*/
 
@@ -41,19 +44,15 @@ body{
     background-color: #800020;
     border-color: #650920;
     box-shadow: 0px 8px 29px;
-}
-
-
-.navbar {
     height: 6em;
-    padding-top: 2em;
+    margin-bottom: 0px;
 }
-
 .brand {
     float: left;
-    padding: 0px 15px;
-    font-size: 18px;
+    padding: 11px 15px 0px 15px;
     line-height: 20px;
+    display: inline-block;
+    position: relative;
 }
 
 .brand > img {
@@ -127,6 +126,14 @@ body{
 
 
 /* --------------------- -------------------NAVIGATION MENU ----------------------- ------------------*/
+
+.navbar-ceasar {
+    display: block;
+    position: relative;
+}
+
+
+
 @media (min-width: 768px) {
 .navigation {
     float: right;
@@ -231,10 +238,24 @@ body{
 
 /* ------------ ------------ HOME PAGE ------------ ------------ */
 
+.mainHeader {
+    text-align: center;
+    min-height: 4%;
+    background-color: red;
+    height: 20vh;
+}
+
+.mainHeader h1 {
+    font-size: 38px;
+    padding: 0.5em;
+    font-weight: bold;
+}
+
 
 .contestGrid {
   width: 300px;
 }
+
 
 
 /* ------------ ------------  END  HOME PAGE ------------ ------------ */
@@ -283,8 +304,3 @@ footer { background-color:#0c1a1e; min-height:350px; font-family: 'Open Sans', s
 
 
 /* ------------ ------------ MEDIA QUERY  ------------ ------------ */
-@media (min-width: 768px) {
-body {
-    padding-top: 100px;
-}
-}
