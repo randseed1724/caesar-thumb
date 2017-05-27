@@ -17,6 +17,8 @@ $(document).ready(function () {
             allWells.hide();
             $target.show();
             $target.find('input:eq(0)').focus();
+            $target.find('textarea:eq(0)').focus();
+
         }
     });
 
@@ -24,8 +26,12 @@ $(document).ready(function () {
         var curStep = $(this).closest(".setup-content"),
             curStepBtn = curStep.attr("id"),
             nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-            curInputs = curStep.find("input[type='text'],input[type='url'],input[type='url']"),
+            // curInputs = curStep.find("input[type='text'],input[type='url'],input[type='file'],input[type='checkbox']"),
+            curInputs = curStep.find("input"),
+
             isValid = true;
+
+
 
         $(".form-group").removeClass("has-error");
         for(var i=0; i<curInputs.length; i++){
@@ -52,7 +58,7 @@ jQuery.fn.extend({
         var listrap = this;
         listrap.getSelection = function () {
             var selection = new Array();
-            listrap.children("li.active").each(function (ix, el) {
+            listrap.children("li.active").each( (ix, el) => {
                 selection.push($(el)[0]);
             });
             return selection;
