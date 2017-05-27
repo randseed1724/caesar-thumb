@@ -21,6 +21,7 @@ $(document).ready(function () {
     });
 
     allNextBtn.click(function(){
+      console.log(' THIS: ',$(this));
         var curStep = $(this).closest(".setup-content"),
             curStepBtn = curStep.attr("id"),
             nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),

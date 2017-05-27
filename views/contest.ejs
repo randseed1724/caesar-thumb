@@ -30,7 +30,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Describe the award your will be givin to the winner.</label>
-                                <textarea  maxlength="100" type="text" required="required" class="form-control" placeholder="Provide information about the amount of money, recognation or kind of product the winner will get"></textarea>
+                                <textarea  maxlength="100" type="text" name="describeAward" required="required" class="form-control" placeholder="Provide information about the amount of money, recognation or kind of product the winner will get"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -38,7 +38,7 @@
                                 <label for="subject">
                                      How many winners will your contest have?
                                 </label>
-                                <select id="subject" name="subject" class="form-control" required="required">
+                                <select id="subject" name="manyWinners" class="form-control" required="required">
                                           <option value="one">1</option>
                                           <option value="two">2</option>
                                           <option value="three">3</option>
@@ -53,7 +53,7 @@
                          <div class="col-md-12">
                               <div class="form-group">
                                   <label class="control-label">How will you be providing the award?</label>
-                                  <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Let contest participants know about you"></textarea>
+                                  <textarea maxlength="100" type="textarea" name="providingAward" required="required" class="form-control" placeholder="Let contest participants know about you"></textarea>
                               </div>
                          </div>
                     </div>
@@ -71,7 +71,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Contest Name</label>
-                                    <input  maxlength="100" type="text" required="required" class="form-control" name="contest-name" placeholder="Give your contest a name"  />
+                                    <input  maxlength="100" type="text" required="required" class="form-control" name="contestName" placeholder="Give your contest a name"  />
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -79,7 +79,7 @@
                                     <label for="subject">
                                       Type of Award
                                     </label>
-                                    <select id="subject" name="subject" class="form-control" required="required">
+                                    <select id="subject" name="typeAward" required="required" class="form-control" required="required">
                                           <option value="Cash">Money</option>
                                           <option value="Digital">Digital Product</option>
                                           <option value="Physical">Physical Product</option>
@@ -94,19 +94,19 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">How to get Ceasar's Thump up!</label>
-                                    <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Shortly describe what contestants should do in order to get Ceasar's Thump up!"></textarea>
+                                    <textarea maxlength="100" type="textarea" required="required" name="whyThump" class="form-control" placeholder="Shortly describe what contestants should do in order to get Ceasar's Thump up!"></textarea>
                                 </div>
                           </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                     <label class="control-label">Tell us about you</label>
-                                    <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Let contest participants know about you"></textarea>
+                                    <textarea maxlength="100" type="text" name="aboutYou" required="required" class="form-control" placeholder="Let contest participants know about you"></textarea>
                               </div>
                           </div>
                           <div class="col-md-12">
                               <div class="form-group">
                                     <label class="control-label">Contest description</label>
-                                    <textarea maxlength="100" type="textarea"  class="form-control" placeholder="Describe your contest here"></textarea>
+                                    <textarea maxlength="100" type="text" name="contestDescription" required="required" class="form-control" placeholder="Describe your contest here"></textarea>
                               </div>
                         </div>
                   </div>
@@ -161,16 +161,13 @@
                     <div class="col-md-12">
                       <h3>Upload an image that represents your contest</h3>
                       <form action="/action_page.php">
-                        <input type="file" name="pic" accept="image/*">
-                      <!-- </form> -->
+                        <input type="file" name="contestImage" required="required" accept="image/*">
                     </div>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
                 </div>
               </div>
             </div>
           </div>
-    <!-- </form> -->
-    <!-- <form role="form" id="form4" action="/contest/submit" method="post"> -->
         <div class="row setup-content" id="step-4">
             <div class="col-xs-12 paddingBottom4em">
                 <div class="col-md-12">
@@ -181,8 +178,8 @@
                       <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Submit</button>
 <!-- <input type="submit" value="Submit Comment" /> -->
                     </p>
-                    <!-- <div class="form-group">
-                    </div> -->
+                    <div class="form-group">
+                    </div>
                     <!-- <input type="submit" value="Submit Comment" /> -->
 
                 </div>
