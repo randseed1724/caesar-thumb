@@ -2,43 +2,45 @@ const express = require('express');
 const ensure = require('connect-ensure-login');
 const multer = require('multer');
 const path = require('path');
-const contest = express.Router();
+const router = express.Router();
+const app = express();
 
-const Contest = require('../models/contest-model');
 
-/* GET contest page. */
+// require the Drone model here
+const contestModel = require('../models/contest-model');
+app.use('/', contestModel);
 
-contest.get('/contest',
+
+router.get('/contest/review',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
 
   (req, res, next) => {
-    res.render('contest');
-  }
-);
 
-contest.get('/contest/review',
-  // We need to be logged in to see contest page
-  ensure.ensureLoggedIn('/login'),
-
-  (req, res, next) => {
-    Contest.find((err, contestHere) => {
+    contestModel.find((err, contestList) => {
     if(err){
       next(err);
       return;
     }
+console.log(res.render('DATA:   ','contest/review',{    data: contestList}) );
     res.render('contest/review', {
-    contestH: contestHere
+    data: contestList
   });
  });
 });
 
 
-contest.post('/contest/review',
+
+
+
+
+
+
+router.post('/contest/review',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
   (req, res, next) => {
-    const newContest = new Contest({
+    const newContest = new contestModel({
       // PART 1
           //categories
           catPhoto: req.body.photography,
@@ -71,4 +73,16 @@ contest.post('/contest/review',
 
 
 
-module.exports = contest;
+  /* GET contest page. */
+  router.get('/contest',
+    // We need to be logged in to see contest page
+    ensure.ensureLoggedIn('/login'),
+
+    (req, res, next) => {
+      res.render('contest');
+    }
+  );
+
+
+
+module.exports = router;
