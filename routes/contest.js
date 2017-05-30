@@ -1,17 +1,33 @@
 const express = require('express');
-const ensure = require('connect-ensure-login');
-const multer = require('multer');
-const path = require('path');
 const router = express.Router();
 const app = express();
 
+
+//middleware
+const ensure = require('connect-ensure-login');
+const multer = require('multer');
+const path = require('path');
+
+const myUploader = multer({
+    dest: path.join(__dirname, '../public/post')
+});
+
+/* GET contest page. */
+router.get('/contest',
+  // We need to be logged in to see contest page
+  ensure.ensureLoggedIn('/login'),
+
+  (req, res, next) => {
+    res.render('contest');
+  }
+);
 
 // require the Drone model here
 const contestModel = require('../models/contest-model');
 app.use('/', contestModel);
 
 
-router.get('/contest/review',
+router.get('/review',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
 
@@ -22,7 +38,6 @@ router.get('/contest/review',
       next(err);
       return;
     }
-console.log(res.render('DATA:   ','contest/review',{    data: contestList}) );
     res.render('contest/review', {
     data: contestList
   });
@@ -31,14 +46,10 @@ console.log(res.render('DATA:   ','contest/review',{    data: contestList}) );
 
 
 
-
-
-
-
-
-router.post('/contest/review',
+router.post('/review',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
+  myUploader.single('contestImage'),
   (req, res, next) => {
     const newContest = new contestModel({
       // PART 1
@@ -48,7 +59,8 @@ router.post('/contest/review',
           catMusic: req.body.music,
           caseatWriting: req.body.writing,
           //image
-          contestImage: req.body.contestImage,
+          contestImage: `/image/${req.file.contestImage}`,
+
       // PART 2
           contestName: req.body.contestName,
           thump: req.body.contestThump,
@@ -67,21 +79,21 @@ router.post('/contest/review',
         next(err);
         return;
       }
-      res.redirect('/contest/review');
+      console.log('testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest');
+      res.redirect('/review');
     });
   });
 
 
+  app.use((err, req, res, next) => {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  /* GET contest page. */
-  router.get('/contest',
-    // We need to be logged in to see contest page
-    ensure.ensureLoggedIn('/login'),
-
-    (req, res, next) => {
-      res.render('contest');
-    }
-  );
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+  });
 
 
 

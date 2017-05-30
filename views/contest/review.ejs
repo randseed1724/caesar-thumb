@@ -1,3 +1,13 @@
 
 
-<h4>Contest name: <%=data.name%></h4>
+<h4>Contest name: <%= data.contestName %></h4>
+
+<ul>
+<% data.forEach((oneContest) => { %>
+    <li>Photo: <img src="/images/<%=oneContest.contestImage%>" width="80px" /> | 2: <%= oneContest.contestName %> | 3: <%= oneContest.typeAward %></li>
+    <br>
+<% }) %>
+</ul>
+
+
+<img src="/images/director-237412_1920.jpg"  width="80px"  />
