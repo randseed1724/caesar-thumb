@@ -1,5 +1,7 @@
 /* -------------------------- CREATE CONTESTS ------------------------------ */
-
+.checkInput {
+margin: 1.2em 0em;
+}
 
 .stepwizard-step p {
     margin-top: 10px;
@@ -13,6 +15,7 @@
     display: table;
     width: 100%;
     position: relative;
+    margin-top: 5em;
 }
 
 .stepwizard-step button[disabled] {
