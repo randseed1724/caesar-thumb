@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
-const Constest = require('../models/contest-model');
 
 
 //middleware
@@ -53,24 +52,19 @@ router.post('/review',
   myUploader.single('contestImage'),
   (req, res, next) => {
     console.log("---------------------------------");
-    console.log(req.file);
+    console.log(req.body);
     const newContest = new contestModel({
       // PART 1
           //categories
-          catPhoto: req.body.photography,
-          catVideo: req.body.video,
-          catMusic: req.body.music,
-          caseatWriting: req.body.writing,
-
+          category: (req.body.photography || req.body.video ||
+          req.body.music || req.body.writing),
 
           //image
           contestImage: `/images/${req.file.filename}`,
 
-
-
       // PART 2
           name: req.body.contestName,
-          thump: req.body.contestThump,
+          caesarThump: req.body.contestThump,
           aboutYou: req.body.aboutYou,
           description: req.body.contestDescription,
           //type of award
@@ -79,7 +73,7 @@ router.post('/review',
           describeAward: req.body.describeAward,
           providingAward: req.body.providingAward,
           //number of winners
-          manyWinners: req.body.manyWinners,
+          totalWinners: req.body.manyWinners,
     });
     newContest.save((err) => {
       if(err){

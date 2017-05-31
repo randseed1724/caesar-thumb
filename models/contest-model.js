@@ -9,16 +9,16 @@ const Schema = mongoose.Schema;
 const contestSchema = new Schema({
     category: { type: String,
       categories: [ 'photography', 'videos', 'music', 'writing' ],
-      default: 'no-category'
+      default: 'photography'
     },
     contestImage: { type: String },
     name: { type: String },
-    awardType: { type: String },
+    typeAward: { type: String },
     caesarThump: { type: String },
     aboutYou: { type: String },
-    contestDescription: { type: String },
-    awardDescription: { type: String },
-    totalWinners: { type: Number },
+    description: { type: String },
+    describeAward: { type: String },
+    totalWinners: { type: String },
     providingAward: { type: String },
 
     // reference the ID of the user
