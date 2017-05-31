@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
+const Constest = require('../models/contest-model');
 
 
 //middleware
 const ensure = require('connect-ensure-login');
 const multer = require('multer');
+const myUploader = multer({dest: 'public/images'});
 const path = require('path');
 
-const myUploader = multer({
-    dest: path.join(__dirname, '../public/post')
-});
+// const myUploader = multer({
+//     dest: path.join(__dirname, '../public/images')});
 
 /* GET contest page. */
 router.get('/contest',
@@ -51,6 +52,8 @@ router.post('/review',
   ensure.ensureLoggedIn('/login'),
   myUploader.single('contestImage'),
   (req, res, next) => {
+    console.log("---------------------------------");
+    console.log(req.file);
     const newContest = new contestModel({
       // PART 1
           //categories
@@ -58,11 +61,15 @@ router.post('/review',
           catVideo: req.body.video,
           catMusic: req.body.music,
           caseatWriting: req.body.writing,
+
+
           //image
-          contestImage: `/image/${req.file.contestImage}`,
+          contestImage: `/images/${req.file.filename}`,
+
+
 
       // PART 2
-          contestName: req.body.contestName,
+          name: req.body.contestName,
           thump: req.body.contestThump,
           aboutYou: req.body.aboutYou,
           description: req.body.contestDescription,

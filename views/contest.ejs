@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <form role="form" id="form1" action="/review" method="post">
+    <form role="form" id="form1" action="/review" method="post" enctype="multipart/form-data">
       <!-- STEP 4-->
         <div class="row setup-content" id="step-3">
             <div class="col-xs-12 paddingBottom4em">
@@ -154,7 +154,7 @@
                <h3 class="padtop3">Upload an image that represents your contest</h3>
              <br/>
                     <div class="col-md-12">
-                        <input type="file" name="contestImage" required="required" accept="image/*">
+                        <input type="file" name="contestImage" required="required" >
                     </div>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
                 </div>
