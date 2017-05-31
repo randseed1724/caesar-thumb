@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
+const contestModel = require('../models/contest-model');
+app.use('/', contestModel);
 
 
 //middleware
@@ -9,25 +11,20 @@ const multer = require('multer');
 const myUploader = multer({dest: 'public/images'});
 const path = require('path');
 
-// const myUploader = multer({
-//     dest: path.join(__dirname, '../public/images')});
+
+
 
 /* GET contest page. */
 router.get('/contest',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
-
   (req, res, next) => {
     res.render('contest');
   }
 );
 
-// require the Drone model here
-const contestModel = require('../models/contest-model');
-app.use('/', contestModel);
 
-
-router.get('/review',
+router.get('/contest/:id/',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
 
@@ -38,12 +35,26 @@ router.get('/review',
       next(err);
       return;
     }
-    res.render('contest/review', {
+    res.render('review', {
     data: contestList
   });
  });
 });
 
+router.get('/review',
+  // We need to be logged in to see contest page
+  ensure.ensureLoggedIn('/login'),
+
+  (req, res, next) => {
+
+    contestModel.find({}, (err, moviesArray) => {
+    if (err) { return next(err); }
+
+    res.render('review', {
+      title: 'Congratulations',
+    });
+  });
+});
 
 
 router.post('/review',
@@ -75,6 +86,7 @@ router.post('/review',
           //number of winners
           totalWinners: req.body.manyWinners,
     });
+    console.log('O.O.O.O.BMVOISDOIFSOIO',newContest);
     newContest.save((err) => {
       if(err){
         next(err);
