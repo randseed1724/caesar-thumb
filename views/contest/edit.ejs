@@ -1,0 +1,22 @@
+h1><%= title %></h1>
+    <form action = "/contest/<%= dara._id %>" method = "POST" >
+      <div>
+        <label for = "title"> Name </label>
+        <input type = "text" name = "title" id = "title" value="<%= data.name %>">
+      </div>
+      <div>
+        <label for = "genre"> Category </label>
+        <input type = "text" name = "genre" id = "genre" value="<%= data.category %>">
+      </div>
+      <div>
+        <label for = "plot"> Description </label>
+        <textarea name = "plot" id = "plot" ><%= data.description %></textarea>
+      </div>
+      <button> Submit </button>
+    </form>
+
+
+
+    <a href = "/contest">
+      Back to list of Movies
+    </a>

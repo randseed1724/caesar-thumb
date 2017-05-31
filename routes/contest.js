@@ -19,7 +19,7 @@ router.get('/contest',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
   (req, res, next) => {
-    res.render('contest');
+    res.render('contest/index');
   }
 );
 

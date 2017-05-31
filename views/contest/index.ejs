@@ -1,0 +1,22 @@
+
+
+   <ul>
+     <% data.forEach( (theContest) => { %>
+       <li>
+         <a href="/contest/<%= theContest._id %>">
+           <%= theContest.name %>
+         </a>
+          <%= theContest.category %>
+         <a href="/contest/<%= theContest._id %>/edit">
+           Edit
+         </a>
+         <form action="/contest/<%= theContest._id %>/delete" method="POST">
+           <button> Delete </button>
+         </form>
+       </li>
+     <% }); %>
+   </ul>
+
+   <a href = "/contest/new">
+     Click here to add a new movie
+   </a>
