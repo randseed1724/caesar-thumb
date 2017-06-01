@@ -12,8 +12,6 @@ const myUploader = multer({dest: 'public/images'});
 const path = require('path');
 
 
-
-
 /* GET contest page. */
 router.get('/contest',
   // We need to be logged in to see contest page
@@ -23,25 +21,7 @@ router.get('/contest',
   }
 );
 
-
-router.get('/contest/:id/',
-  // We need to be logged in to see contest page
-  ensure.ensureLoggedIn('/login'),
-
-  (req, res, next) => {
-
-    contestModel.find((err, contestList) => {
-    if(err){
-      next(err);
-      return;
-    }
-    res.render('review', {
-    data: contestList
-  });
- });
-});
-
-router.get('/review',
+router.get('/contest/new',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
 
@@ -50,14 +30,14 @@ router.get('/review',
     contestModel.find({}, (err, moviesArray) => {
     if (err) { return next(err); }
 
-    res.render('review', {
+    res.render('contest/new', {
       title: 'Congratulations',
     });
   });
 });
 
 
-router.post('/review',
+router.post('/contest/new',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
   myUploader.single('contestImage'),
@@ -93,9 +73,20 @@ router.post('/review',
         return;
       }
       console.log('testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest');
-      res.redirect('/review');
+      res.redirect(`/contest/${newContest._id}`);
     });
   });
+
+router.get('/contest/:id', function (req, res, next) {
+  contestModel.findOne({_id: req.params.id}, (err, theContest) => {
+    if (err) { return next(err); }
+    res.render('contest/show', {
+      title: `${theContest.name} Details`,
+      contest: theContest
+    });
+  });
+
+});
 
 
   app.use((err, req, res, next) => {
