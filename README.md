@@ -2,7 +2,7 @@
 
 Description: Caesar Thump is a an application where users can create a contest about photography, video or music, at least initially. What this website brings as something new in contrast with other contest websites is the feature of upvote and donwvote once per contest. User can come to vote for their favorite participant and donwvote the one they think is the worst participant.
 
-
+How to use it: 
 
 Credits:
 
