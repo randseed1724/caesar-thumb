@@ -17,9 +17,21 @@ router.get('/contest',
   // We need to be logged in to see contest page
   ensure.ensureLoggedIn('/login'),
   (req, res, next) => {
-    res.render('contest/index');
-  }
-);
+
+    contestModel.find({}, (err, contestArray) => {
+      if (err) { return next(err); }
+
+    res.render('contest/index', {
+      title: 'All contest',
+      contest: contestArray
+
+    });
+  });
+});
+
+
+
+
 
 router.get('/contest/new',
   // We need to be logged in to see contest page
@@ -66,13 +78,11 @@ router.post('/contest/new',
           //number of winners
           totalWinners: req.body.manyWinners,
     });
-    console.log('O.O.O.O.BMVOISDOIFSOIO',newContest);
     newContest.save((err) => {
       if(err){
         next(err);
         return;
       }
-      console.log('testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest');
       res.redirect(`/contest/${newContest._id}`);
     });
   });
@@ -85,8 +95,32 @@ router.get('/contest/:id', function (req, res, next) {
       contest: theContest
     });
   });
-
 });
+
+router.get('/contest/:id/edit', function (req, res, next) {
+  contestModel.findOne({ _id: req.params.id }, (err, theContest) => {
+    if (err) { return next(err); }
+
+    res.render('contest/edit', {
+      title: `Edit ${theContest.name}`,
+      contest: theContest
+    });
+  });
+});
+
+router.post('/contest/:id', function (req, res, next) {
+  const updatedMovie = {
+    title: req.body.title,
+    plot: req.body.plot,
+    genre: req.body.genre,
+  };
+  Movie.update({_id: req.params.id}, updatedMovie, (err, theMovie) => {
+    if (err) {return next(err); }
+
+    res.redirect('/contest/index');
+  });
+});
+
 
 
   app.use((err, req, res, next) => {
