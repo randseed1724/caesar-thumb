@@ -101,22 +101,17 @@
     </div>
 </div>
 
-<h3>My Contests</h3>
-<ul>
+
       <% contest.forEach( (theContest) => { %>
-        <li>
-          <a href="/contest/<%= theContest._id %>">
-            <%= theContest.name %>
-          </a>
-            <%= theContest.category %>
-          <a href="/contest/<%= theContest._id %>/edit">
-            Edit
-          </a>
-          <form action="/contest/<%= theContest._id %>/delete" method="POST">
-            <button> Delete </button>
-          </form>
-        </li>
+        <div class="col-md-4 gridOrder">
+          <img src="<%= theContest.contestImage %>" class="contestGrid" />
+          <h2><%=theContest.name%></h2>
+            <p><%= theContest.category %></p>
+            <p><%=theContest.description%></p>
+            <a class="btn btn-default" href="#">More Info</a>
+        </div>
       <% }); %>
-</ul>
+
+
 
 <!-- FOOTER -->

@@ -197,6 +197,15 @@ body{
 
 /* ------------ ------------ HOME PAGE ------------ ------------ */
 
+.gridOrder {
+    height: 400px;
+    margin: 20px auto 40px auto;
+}
+
+.contestGrid {
+    height: 230px;
+}
+
 .mainHeader {
     text-align: center;
     min-height: 4%;
