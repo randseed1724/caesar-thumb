@@ -109,18 +109,48 @@ router.get('/contest/:id/edit', function (req, res, next) {
 });
 
 router.post('/contest/:id', function (req, res, next) {
-  const updatedMovie = {
-    title: req.body.title,
-    plot: req.body.plot,
-    genre: req.body.genre,
-  };
-  Movie.update({_id: req.params.id}, updatedMovie, (err, theMovie) => {
-    if (err) {return next(err); }
+  const updatedContest = {
+    // PART 1
+        //categories
+        category: (req.body.photography || req.body.video ||
+        req.body.music || req.body.writing),
 
-    res.redirect('/contest/index');
+        //image
+
+        contestImage: (req.file) ? `/images/${req.file.filename}`:'null',
+
+    // PART 2
+        name: req.body.contestName,
+        caesarThump: req.body.contestThump,
+        aboutYou: req.body.aboutYou,
+        description: req.body.contestDescription,
+        //type of award
+        typeAward: req.body.typeAward,
+    // PART 3
+        describeAward: req.body.describeAward,
+        providingAward: req.body.providingAward,
+        //number of winners
+        totalWinners: req.body.manyWinners,
+  };
+  contestModel.update({_id: req.params.id}, updatedContest, (err, theContest) => {
+    if (err) {return next(err); }
+    res.redirect('/contest/'+req.params.id);
   });
 });
 
+
+// Delete
+router.post('/contest/:id/delete', function(req, res, next) {
+  contestModel.findOne({ _id: req.params.id }, (err, theContest) => {
+    if (err) { return next(err); }
+
+    theContest.remove((err) => {
+      if (err) { return next(err); }
+
+      res.redirect('/contest');
+    });
+  });
+});
 
 
   app.use((err, req, res, next) => {
