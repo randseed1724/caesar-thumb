@@ -1,17 +1,10 @@
 const express      = require('express');
 const router  = express.Router();
+const contestModel = require('../models/contest-model');
 
-/* GET home page. */
+
 
 router.get('/', (req, res, next) => {
-  console.log('HOME ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-
-  // console.log('SESSION (from express-session middleware)');
-  // console.log(req.session);
-
-  console.log('\n');
-  // console.log('USER (from Passport middleware)');
-  // console.log(req.user);
 
   // Render a completely different view for logged in users
   // if (req.user) {
@@ -22,12 +15,17 @@ router.get('/', (req, res, next) => {
 
   //   res.render('index', {});
   // });
-  res.render('index');
-}
-    // console.log("ouybgougy9uyboiuhbiuboubouhbohbjolblkjblkjhkjhkjhkjhkjhkjh");
-    // user: req.user,
-    // successMessage: req.flash('success')
+
+      contestModel.find({}, (err, contestArray) => {
+        if (err) { return next(err); }
+
+    res.render('index', {
+      contest: contestArray
       //                          |
   // }); //        default success message key from Passport
-);
+  });
+  });
+});
+
+
 module.exports = router;
