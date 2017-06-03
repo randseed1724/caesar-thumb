@@ -80,3 +80,77 @@ $(document).ready(function () {
         console.log(selection);
     });
 });
+
+
+
+
+
+
+$(document).ready(function() {
+    var $btnSets = $('#responsive'),
+    $btnLinks = $btnSets.find('a');
+
+    $btnLinks.click(function(e) {
+        e.preventDefault();
+        $(this).siblings('a.active').removeClass("active");
+        $(this).addClass("active");
+        var index = $(this).index();
+        $("div.user-menu>div.user-menu-content").removeClass("active");
+        $("div.user-menu>div.user-menu-content").eq(index).addClass("active");
+    });
+});
+
+$( document ).ready(function() {
+    $("[rel='tooltip']").tooltip();
+
+    $('.view').hover(
+        function(){
+            $(this).find('.caption').slideDown(250); //.fadeIn(250)
+        },
+        function(){
+            $(this).find('.caption').slideUp(250); //.fadeOut(205)
+        }
+    );
+});
+
+(function( $ ) {
+
+    //Function to animate slider captions
+    function doAnimations( elems ) {
+		//Cache the animationend event in a variable
+		var animEndEv = 'webkitAnimationEnd animationend';
+
+		elems.each(function () {
+			var $this = $(this),
+				$animationType = $this.data('animation');
+			$this.addClass($animationType).one(animEndEv, function () {
+				$this.removeClass($animationType);
+			});
+		});
+	}
+
+	//Variables on page load
+	var $myCarousel = $('#carousel-example-generic'),
+		$firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
+
+	//Initialize carousel
+	$myCarousel.carousel();
+
+	//Animate captions in first slide on page load
+	doAnimations($firstAnimatingElems);
+
+	//Pause carousel
+	$myCarousel.carousel('pause');
+
+
+	//Other slides to be animated on carousel slide event
+	$myCarousel.on('slide.bs.carousel', function (e) {
+		var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
+		doAnimations($animatingElems);
+	});
+    $('#carousel-example-generic').carousel({
+        interval:3000,
+        pause: "false"
+    });
+
+})(jQuery);

@@ -16,10 +16,6 @@ const userSchema = new Schema(
     },
     profileImg: { type: String },
 
-    // Traditional registration users
-    username: { type: String },
-    encryptedPassword: { type: String },
-
     // Login with Facebook users
     facebookID: { type: String },
 
