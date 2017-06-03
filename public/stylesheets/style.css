@@ -297,11 +297,20 @@ p {
     margin: 13px auto;
 }
 
+.well {
+    margin-top: 2em;
+}
 
+#votePosition {
+    display: inline-block;
+    width: 87%;
+    bottom: 3em;
+    position: absolute;
+}
 
 #featuredImg {
     width: 100%;
-    max-height: 420px;
+    max-height: 480px;
 }
 
 #featureBc {
@@ -340,10 +349,11 @@ p {
     text-align: center;
     background: #000;
     border: 6px dotted #800020;
-    position: absolute;
     top: 19.5em;
     right: 2.5em;
     font-weight: bold;
+    display: inline-block;
+        float: right;
 }
 
 #featuredTittle {
@@ -352,11 +362,10 @@ p {
 
 .middle {
     height: 46px;
-    position: absolute;
-    top: 20.5em;
-    right: 10em;
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
+    float: right;
+    margin: 1em;
 }
 
 .btn-caesar {
