@@ -329,6 +329,9 @@ p {
     padding-top: 6px;
 }
 
+#contestsGrid > .gridOrder {
+    min-height: 500px;
+}
 
 .contestGrid {
   width: 300px;

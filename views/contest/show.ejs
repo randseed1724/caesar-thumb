@@ -14,3 +14,11 @@
       <a href = "/contest">
         Back to your contests page
       </a>
+
+      <form action = "/<%= contest._id%>" method = "POST" >
+         <div>
+           <label for = "title"> Votes </label>
+           <p>Votes: <%=theContest.votes%></p>
+         </div>
+         <button  type="button" id="addVote"> Vote </button>
+      </form>

@@ -42,26 +42,19 @@
     </div>
 </div>
 
-
+<div id="contestsGrid">
       <% contest.forEach( (theContest) => { %>
         <div class="col-md-4 gridOrder">
           <img src="<%= theContest.contestImage %>" class="contestGrid" />
-          <h2><%=theContest.name%></h2>
-          <p>Votes: <%= theContest.votes%></p>
-            <p><%= theContest.category %></p>
+          <h4><%=theContest.name%></h4>
+          <p style="padding-left: 0px;" class="col-md-6">Contestants: <%= theContest.contestants%></p>
+          <p style="padding-left: 0px;" class="col-md-6">Votes: <%= theContest.votes%></p>
+            <p>Category: <%= theContest.category %></p>
             <p><%=theContest.description%></p>
-            <a class="btn btn-default" href="#">More Info</a>
-
-      <form action = "/<%= contest._id%>" method = "POST" >
-         <div>
-           <label for = "title"> Votes </label>
-           <input type = "text" name="vote" id ="voteBtn" value="<%=theContest.votes%>">
-         </div>
-         <button  type="button" id="addVote"> Vote </button>
-     </form>
-            <a class="btn btn-default" href="#"></a>
+            <a style="float: left;" class="btn btn-danger btn-lg" href="#">More Info</a>
         </div>
       <% }); %>
+</div>
 
 
 

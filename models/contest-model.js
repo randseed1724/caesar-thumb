@@ -20,7 +20,11 @@ const contestSchema = new Schema({
     describeAward: { type: String },
     totalWinners: { type: String },
     providingAward: { type: String },
+    //part 2
     votes: { type: Number,
+    default: '0'
+    },
+    contestants: { type: Number,
     default: '0'
     },
     // reference the ID of the user
