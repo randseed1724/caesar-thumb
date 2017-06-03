@@ -97,6 +97,7 @@ router.get('/contest/:id', function (req, res, next) {
   });
 });
 
+//EDIT GET
 router.get('/contest/:id/edit', function (req, res, next) {
   contestModel.findOne({ _id: req.params.id }, (err, theContest) => {
     if (err) { return next(err); }
@@ -108,6 +109,7 @@ router.get('/contest/:id/edit', function (req, res, next) {
   });
 });
 
+//EDIT POST
 router.post('/contest/:id', function (req, res, next) {
   const updatedContest = {
     // PART 1

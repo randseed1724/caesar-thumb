@@ -45,6 +45,10 @@ $(document).ready(function () {
     });
 
     $('div.setup-panel div a.btn-primary').trigger('click');
+
+
+
+
 });
 
 // Listrap v1.0, by Gustavo Gondim (http://github.com/ggondim)

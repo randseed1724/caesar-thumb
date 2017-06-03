@@ -3,16 +3,19 @@
 <div class="row">
   <div class="col-md-12 mainHeader">
     			<h1>Contests, Thumps and Awards</h1>
-            	<p class="subtitle">Create your contest or vote for your favorite contestant</p>
+            	<p class="subtitle">Create your contest and vote for your favorite contestant</p>
     </div>
 
 
-    <div class="col-md-8">
-        <img class="img-responsive img-rounded" src="http://placehold.it/900x350" alt="">
+    <div class="col-md-6 topRoom">
+      <div id="featureBc">
+        <h3 id="featured">Featured Contest</h3>
+      </div>
+        <img id="featuredImg" class="img-responsive img-rounded" src="/images/guitar-756326_1920.jpg" alt="">
     </div>
     <!-- /.col-md-8 -->
-    <div class="col-md-4">
-        <h1>Business Name or Tagline</h1>
+    <div class="col-md-6">
+        <h1><%=contest[1].name%></h1>
 
           <!-- <% if (typeof message !== "undefined") { %>
           <div class="success">  <%= success %> </div>
@@ -25,79 +28,10 @@
 <div class="row">
   <hr>
 
-    <div class="col-lg-12">
+    <div class="container-fluid">
         <div class="well text-center">
             This is a well that is a great spot for a business tagline or phone number for easy access!
         </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-      <img src="http://i.vimeocdn.com/video/589377492_1280x720.jpg" class="contestGrid" />
-        <h2>Heading 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-    </div>
-    <div class="col-md-4">
-      <img src="http://i.vimeocdn.com/video/589377492_1280x720.jpg" class="contestGrid" />
-
-        <h2>Heading 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-    </div>
-    <div class="col-md-4">
-      <img src="http://i.vimeocdn.com/video/589377492_1280x720.jpg" class="contestGrid" />
-        <h2>Heading 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-      <img src="http://i.vimeocdn.com/video/589377492_1280x720.jpg" class="contestGrid" />
-        <h2>Heading 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-    </div>
-    <div class="col-md-4">
-      <img src="http://i.vimeocdn.com/video/589377492_1280x720.jpg" class="contestGrid" />
-        <h2>Heading 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-    </div>
-    <div class="col-md-4">
-      <img src="http://i.vimeocdn.com/video/589377492_1280x720.jpg" class="contestGrid" />
-
-        <h2>Heading 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-md-4">
-      <img src="http://i.vimeocdn.com/video/589377492_1280x720.jpg" class="contestGrid" />
-
-        <h2>Heading 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-    </div>
-    <div class="col-md-4">
-      <img src="http://i.vimeocdn.com/video/589377492_1280x720.jpg" class="contestGrid" />
-
-        <h2>Heading 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
-    </div>
-    <div class="col-md-4">
-      <img src="http://i.vimeocdn.com/video/589377492_1280x720.jpg" class="contestGrid" />
-
-        <h2>Heading 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">More Info</a>
     </div>
 </div>
 
@@ -106,9 +40,19 @@
         <div class="col-md-4 gridOrder">
           <img src="<%= theContest.contestImage %>" class="contestGrid" />
           <h2><%=theContest.name%></h2>
+          <p>Votes: <%= theContest.votes%></p>
             <p><%= theContest.category %></p>
             <p><%=theContest.description%></p>
             <a class="btn btn-default" href="#">More Info</a>
+
+      <form action = "/<%= contest._id%>" method = "POST" >
+         <div>
+           <label for = "title"> Votes </label>
+           <input type = "text" name="vote" id ="voteBtn" value="<%=theContest.votes%>">
+         </div>
+         <button  type="button" id="addVote"> Vote </button>
+     </form>
+            <a class="btn btn-default" href="#"></a>
         </div>
       <% }); %>
 

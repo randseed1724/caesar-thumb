@@ -28,4 +28,22 @@ router.get('/', (req, res, next) => {
 });
 
 
+    function onClick(){
+      clicks++;
+    }
+
+
+//EDIT POST
+router.post('/', function (req, res, next) {
+    const updatedContest = {
+            votes: req.body.vote,
+      };
+      contestModel.update({_id: req.params.id}, updatedContest, (err, theContest) => {
+        if (err) {return next(err); }
+        res.redirect('/'+req.params.id);
+      });
+    });
+
+
+
 module.exports = router;

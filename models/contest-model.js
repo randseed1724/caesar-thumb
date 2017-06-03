@@ -20,7 +20,9 @@ const contestSchema = new Schema({
     describeAward: { type: String },
     totalWinners: { type: String },
     providingAward: { type: String },
-
+    votes: { type: Number,
+    default: '0'
+    },
     // reference the ID of the user
     // owner: { type: Schema.Types.ObjectId }
     // creator: { type: Schema.Types.ObjectId }
