@@ -3,31 +3,34 @@
 <div class="row">
   <div class="col-md-12 mainHeader">
     			<h1>Contests, Thumps and Awards</h1>
-            	<p class="subtitle">Create your contest and vote for your favorite contestant</p>
+            	<h2 class="subtitle">Create your contest and vote for your favorite contestant</h2>
     </div>
 
 
     <div class="col-md-6 topRoom">
       <div id="featureBc">
         <h3 id="featured">Featured Contest</h3>
+        <img class="middle" src="/images/middle.png"/>
+        <div id="featuredVotes">
+          <p>462</p>
+      </div>
       </div>
         <img id="featuredImg" class="img-responsive img-rounded" src="/images/guitar-756326_1920.jpg" alt="">
     </div>
     <!-- /.col-md-8 -->
-    <div class="col-md-6">
-        <h1><%=contest[1].name%></h1>
+    <div class="col-md-6 featuredText">
+        <h4 id="featuredTittle"><%=contest[1].name%> Contest</h4>
+
 
           <!-- <% if (typeof message !== "undefined") { %>
           <div class="success">  <%= success %> </div>
           <% } %> -->
 
         <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
-        <a class="btn btn-primary btn-lg" href="#">Call to Action!</a>
+        <a class="btn btn-caesar btn-lg" href="#">Participate on this Contests</a>
     </div>
 </div>
 <div class="row">
-  <hr>
-
     <div class="container-fluid">
         <div class="well text-center">
             This is a well that is a great spot for a business tagline or phone number for easy access!
